@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Creation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            position: relative; /* To position the buttons absolutely */
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(18, 18, 18, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Cross and Back Buttons */
+        .cross-button, .back-button {
+            position: absolute;
+            top: 10px;
+            border: none;
+            background: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .cross-button {
+            right: 10px; /* Positioned at the top-right corner */
+        }
+
+        .back-button {
+            left: 10px; /* Positioned at the top-left corner */
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="tel"],
+        .form-container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .form-container a {
+            color: #009688;
+            text-decoration: none;
+        }
+
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2c3ca7;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:focus {
+            background-color: #eb2323; /* Change color to red when focused */
+        }
+
+        .form-container .google-signin {
+            width: 100%;
+            background-color: #cc3022;
+            display: flex;
+            align-items: center;
+            justify-content:center ;
+            padding: 8px;
+            border: 0;
+            border-radius: 5px;
+            color: #fefbfb;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .form-container .google-signin img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            background-color:none;
+        }
+
+        .form-container hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+
+        .form-container p {
+            text-align: center;
+        }
+
+        .form-container small {
+            font-size: 12px;
+        }
+
+        .form-container .phone-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-container .phone-container img {
+            margin-right: 5px;
+            width: 20px;
+            height: 15px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function showPopup() {
+            alert("Congratulations! Your account has been created successfully.");
+        }
+
+        function exitPage() {
+            window.close(); // Close the current window (Note: May not work on all browsers due to security reasons)
+        }
+
+        function goBack() {
+            window.history.back(); // Navigate back to the previous page
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <button class="cross-button" onclick="exitPage()">&#10006;</button>
+        <button class="back-button" onclick="goBack()">&#8592;</button>
+
+        <h1>Create Account</h1>
+        <form action="/submit" method="POST" onsubmit="showPopup()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="Phone" class="phone-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg" alt="India Flag"> Phone +91
+            </label>
+            <input type="tel" id="tel" name="Phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="terms">
+                <input type="checkbox" required id="terms" name="terms"> 
+                I agree to the <a href="terms.html" target="_blank">Terms and Conditions</a> 
+            </label>
+
+            <input type="submit" value="Create Account">
+
+            <hr>
+
+            <p><small>OR</small></p>
+
+            <button type="button" class="google-signin">
+                <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Google Logo">
+                Sign in with Google
+            </button>
+
+            <p>Already have an account? <a href="login.html">Log in</a></p>
+        </form>
+    </div>
+</body>
+</html>
